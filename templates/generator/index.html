@@ -1,31 +1,43 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={% static 'css/bootstrap.css' %}> <link
+    rel="stylesheet" href={% static 'css/style.css' %}>
     <title>Password Generator</title>
   </head>
   <body>
-    <h1>Password Generator</h1>
-    <form action="{% url 'password' %}">
-      <label for="length">Choose a password length</label>
-      <select name="length">
-        <option value="6">six</option>
-        <option value="7">seven</option>
-        <option value="8">eight</option>
-        <option value="9" selected="selected">nine</option>
-        <option value="10">ten</option>
-      </select>
-      <br />
-      <input type="checkbox" name="uppercase" /> Uppercase
-      <br />
-      <input type="checkbox" name="numbers" /> Numbers
-      <br />
-      <input type="checkbox" name="special" /> Special Characters
-      <br />
-
-      <input type="submit" value="Generate Password" />
-    </form>
-    <a href="{% url 'about' %}">About this site</a>
+    <div class="container text-center">
+      <h1>Password Generator</h1>
+      <form action="{% url 'password' %}">
+        <div class="form-group">
+          <label for="length"></label>
+          <select name="length">
+            <option value="6">six</option>
+            <option value="7">seven</option>
+            <option value="8">eight</option>
+            <option value="9" selected="selected">nine</option>
+            <option value="10">ten</option>
+          </select>
+          Password Length
+          <br />
+          <input type="checkbox" name="uppercase" />
+          Uppercase
+          <br />
+          <input type="checkbox" name="numbers" /> Numbers
+          <br />
+          <input type="checkbox" name="special" /> Special Characters
+          <br />
+        </div>
+        <input
+          type="submit"
+          class="btn btn-primary my-3 form-control"
+          value="Generate Password"
+        />
+      </form>
+      <a href="{% url 'about' %}">About this site</a>
+    </div>
   </body>
 </html>
